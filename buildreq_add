@@ -2,7 +2,7 @@
 # picked up automatically. One name per line, no whitespace.
 zlib-dev
 ncurses-dev
-lua-dev
+LuaJIT-dev
 jsoncpp-dev
 jq-dev
 openssl-dev

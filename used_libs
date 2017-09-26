@@ -1,0 +1,16 @@
+libanl.so.1
+libc.so.6
+libcrypto.so.1.0.0
+libcurl.so.4
+libgcc_s.so.1
+libjq.so.1
+libjsoncpp.so.19
+libluajit-5.1.so.2
+libm.so.6
+libncurses.so.6
+libpthread.so.0
+librt.so.1
+libssl.so.1.0.0
+libstdc++.so.6
+libtinfo.so.6
+libz.so.1
