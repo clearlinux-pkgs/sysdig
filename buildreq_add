@@ -1,0 +1,10 @@
+# This file contains additional build requirements that did not get
+# picked up automatically. One name per line, no whitespace.
+zlib-dev
+ncurses-dev
+lua-dev
+jsoncpp-dev
+jq-dev
+openssl-dev
+libb64-dev
+curl-dev
