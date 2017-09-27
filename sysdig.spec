@@ -4,16 +4,15 @@
 #
 Name     : sysdig
 Version  : 0.18.0
-Release  : 2
+Release  : 3
 URL      : https://github.com/draios/sysdig/archive/0.18.0.tar.gz
 Source0  : https://github.com/draios/sysdig/archive/0.18.0.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: sysdig-bin
-Requires: sysdig-config
-Requires: sysdig-doc
 Requires: sysdig-data
+Requires: sysdig-doc
 BuildRequires : LuaJIT-dev
 BuildRequires : cmake
 BuildRequires : curl-dev
@@ -33,18 +32,9 @@ sysdig
 Summary: bin components for the sysdig package.
 Group: Binaries
 Requires: sysdig-data
-Requires: sysdig-config
 
 %description bin
 bin components for the sysdig package.
-
-
-%package config
-Summary: config components for the sysdig package.
-Group: Default
-
-%description config
-config components for the sysdig package.
 
 
 %package data
@@ -71,7 +61,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1506529872
+export SOURCE_DATE_EPOCH=1506530964
 mkdir clr-build
 pushd clr-build
 cmake .. -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_SHARED_LIBS:BOOL=ON -DLIB_INSTALL_DIR:PATH=/usr/lib64 -DCMAKE_AR=/usr/bin/gcc-ar -DLIB_SUFFIX=64 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_RANLIB=/usr/bin/gcc-ranlib -DUSE_BUNDLED_DEPS=OFF -DBUILD_DRIVER=FALSE
@@ -79,11 +69,15 @@ make VERBOSE=1  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1506529872
+export SOURCE_DATE_EPOCH=1506530964
 rm -rf %{buildroot}
 pushd clr-build
 %make_install
 popd
+## make_install_append content
+mkdir -p %{buildroot}/usr/share/bash-completion/completions/
+mv %{buildroot}/usr/etc/bash_completion.d/sysdig %{buildroot}/usr/share/bash-completion/completions/sysdig
+## make_install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -111,12 +105,9 @@ popd
 /usr/bin/sysdig
 /usr/bin/sysdig-probe-loader
 
-%files config
-%defattr(-,root,root,-)
-%exclude /usr/etc/bash_completion.d/sysdig
-
 %files data
 %defattr(-,root,root,-)
+/usr/share/bash-completion/completions/sysdig
 /usr/share/sysdig/chisels/COPYING
 /usr/share/sysdig/chisels/ansiterminal.lua
 /usr/share/sysdig/chisels/around.lua
