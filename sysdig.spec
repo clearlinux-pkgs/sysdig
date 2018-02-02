@@ -4,7 +4,7 @@
 #
 Name     : sysdig
 Version  : 0.73.2
-Release  : 9
+Release  : 10
 URL      : https://github.com/draios/sysdig/archive/agent/0.73.2.tar.gz
 Source0  : https://github.com/draios/sysdig/archive/agent/0.73.2.tar.gz
 Summary  : No detailed summary available
