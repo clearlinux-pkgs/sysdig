@@ -1,0 +1,28 @@
+From 4af5bfcfee7763333f4a8ce49b8e7420c824601f Mon Sep 17 00:00:00 2001
+From: Icarus Sparry <icarus.w.sparry@intel.com>
+Date: Tue, 6 Mar 2018 11:19:07 -0800
+Subject: [PATCH] Fix runtime curses error
+
+The curses include files on clearlinux are set up for wide characters by
+default. Force use of single byte characters.
+
+Signed-off-by: Icarus Sparry <icarus.w.sparry@intel.com>
+---
+ CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 22e430c..a716d30 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -244,6 +244,7 @@ if(NOT WIN32)
+ 	if(NOT USE_BUNDLED_NCURSES)
+ 		set(CURSES_NEED_NCURSES TRUE)
+ 		find_package(Curses REQUIRED)
++		add_definitions(-DNCURSES_WIDECHAR=0)
+ 		message(STATUS "Found ncurses: include: ${CURSES_INCLUDE_DIR}, lib: ${CURSES_LIBRARIES}")
+ 	else()
+ 		set(CURSES_BUNDLE_DIR "${PROJECT_BINARY_DIR}/ncurses-prefix/src/ncurses")
+-- 
+2.16.2
+
