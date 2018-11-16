@@ -4,7 +4,7 @@
 #
 Name     : sysdig
 Version  : 0.24.1
-Release  : 18
+Release  : 19
 URL      : https://github.com/draios/sysdig/archive/0.24.1.tar.gz
 Source0  : https://github.com/draios/sysdig/archive/0.24.1.tar.gz
 Summary  : No detailed summary available
