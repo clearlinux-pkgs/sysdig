@@ -4,12 +4,12 @@
 #
 Name     : sysdig
 Version  : 0.24.1
-Release  : 19
+Release  : 20
 URL      : https://github.com/draios/sysdig/archive/0.24.1.tar.gz
 Source0  : https://github.com/draios/sysdig/archive/0.24.1.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : Apache-2.0
+License  : Apache-2.0 GPL-2.0
 Requires: sysdig-bin = %{version}-%{release}
 Requires: sysdig-data = %{version}-%{release}
 Requires: sysdig-license = %{version}-%{release}
@@ -76,18 +76,19 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1538797160
+export SOURCE_DATE_EPOCH=1542434185
 mkdir -p clr-build
 pushd clr-build
 %cmake .. -DUSE_BUNDLED_DEPS=OFF -DBUILD_DRIVER=FALSE
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1538797160
+export SOURCE_DATE_EPOCH=1542434185
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sysdig
 cp COPYING %{buildroot}/usr/share/package-licenses/sysdig/COPYING
+cp driver/GPL2.txt %{buildroot}/usr/share/package-licenses/sysdig/driver_GPL2.txt
 cp userspace/sysdig/chisels/COPYING %{buildroot}/usr/share/package-licenses/sysdig/userspace_sysdig_chisels_COPYING
 pushd clr-build
 %make_install
@@ -247,6 +248,7 @@ mv %{buildroot}/usr/etc/bash_completion.d/sysdig %{buildroot}/usr/share/bash-com
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/sysdig/COPYING
+/usr/share/package-licenses/sysdig/driver_GPL2.txt
 /usr/share/package-licenses/sysdig/userspace_sysdig_chisels_COPYING
 
 %files man
