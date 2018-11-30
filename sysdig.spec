@@ -4,7 +4,7 @@
 #
 Name     : sysdig
 Version  : 0.24.1
-Release  : 20
+Release  : 21
 URL      : https://github.com/draios/sysdig/archive/0.24.1.tar.gz
 Source0  : https://github.com/draios/sysdig/archive/0.24.1.tar.gz
 Summary  : No detailed summary available
@@ -76,7 +76,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1542434185
+export SOURCE_DATE_EPOCH=1543600532
 mkdir -p clr-build
 pushd clr-build
 %cmake .. -DUSE_BUNDLED_DEPS=OFF -DBUILD_DRIVER=FALSE
@@ -84,7 +84,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1542434185
+export SOURCE_DATE_EPOCH=1543600532
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sysdig
 cp COPYING %{buildroot}/usr/share/package-licenses/sysdig/COPYING
@@ -96,40 +96,11 @@ popd
 ## install_append content
 mkdir -p %{buildroot}/usr/share/bash-completion/completions/
 mv %{buildroot}/usr/etc/bash_completion.d/sysdig %{buildroot}/usr/share/bash-completion/completions/sysdig
+rm -rf %{buildroot}/usr/src
 ## install_append end
 
 %files
 %defattr(-,root,root,-)
-/usr/src/sysdig-0.1.1dev/Makefile
-/usr/src/sysdig-0.1.1dev/bpf/Makefile
-/usr/src/sysdig-0.1.1dev/bpf/bpf_helpers.h
-/usr/src/sysdig-0.1.1dev/bpf/filler_helpers.h
-/usr/src/sysdig-0.1.1dev/bpf/fillers.h
-/usr/src/sysdig-0.1.1dev/bpf/maps.h
-/usr/src/sysdig-0.1.1dev/bpf/plumbing_helpers.h
-/usr/src/sysdig-0.1.1dev/bpf/probe.c
-/usr/src/sysdig-0.1.1dev/bpf/quirks.h
-/usr/src/sysdig-0.1.1dev/bpf/ring_helpers.h
-/usr/src/sysdig-0.1.1dev/bpf/types.h
-/usr/src/sysdig-0.1.1dev/dkms.conf
-/usr/src/sysdig-0.1.1dev/driver_config.h
-/usr/src/sysdig-0.1.1dev/dynamic_params_table.c
-/usr/src/sysdig-0.1.1dev/event_table.c
-/usr/src/sysdig-0.1.1dev/fillers_table.c
-/usr/src/sysdig-0.1.1dev/flags_table.c
-/usr/src/sysdig-0.1.1dev/main.c
-/usr/src/sysdig-0.1.1dev/ppm.h
-/usr/src/sysdig-0.1.1dev/ppm_compat_unistd_32.h
-/usr/src/sysdig-0.1.1dev/ppm_cputime.c
-/usr/src/sysdig-0.1.1dev/ppm_events.c
-/usr/src/sysdig-0.1.1dev/ppm_events.h
-/usr/src/sysdig-0.1.1dev/ppm_events_public.h
-/usr/src/sysdig-0.1.1dev/ppm_fillers.c
-/usr/src/sysdig-0.1.1dev/ppm_fillers.h
-/usr/src/sysdig-0.1.1dev/ppm_flag_helpers.h
-/usr/src/sysdig-0.1.1dev/ppm_ringbuffer.h
-/usr/src/sysdig-0.1.1dev/ppm_syscall.h
-/usr/src/sysdig-0.1.1dev/syscall_table.c
 
 %files bin
 %defattr(-,root,root,-)

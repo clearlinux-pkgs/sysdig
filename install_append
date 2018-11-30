@@ -1,2 +1,3 @@
 mkdir -p %{buildroot}/usr/share/bash-completion/completions/
 mv %{buildroot}/usr/etc/bash_completion.d/sysdig %{buildroot}/usr/share/bash-completion/completions/sysdig
+rm -rf %{buildroot}/usr/src
