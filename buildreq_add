@@ -10,3 +10,6 @@ libb64-dev
 curl-dev
 elfutils-dev
 tbb-dev
+c-ares-dev
+protobuf-dev
+grpc-dev

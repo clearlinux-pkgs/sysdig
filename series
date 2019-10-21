@@ -1,1 +1,2 @@
 0001-Fix-runtime-curses-error.patch
+0001-PATCH-fix-build-with-LuaJIT-2.1-betas.patch
