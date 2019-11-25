@@ -4,7 +4,7 @@
 #
 Name     : sysdig
 Version  : 0.26.4
-Release  : 23
+Release  : 24
 URL      : https://github.com/draios/sysdig/archive/0.26.4.tar.gz
 Source0  : https://github.com/draios/sysdig/archive/0.26.4.tar.gz
 Summary  : No detailed summary available
