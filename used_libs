@@ -10,7 +10,7 @@ libjsoncpp.so.19
 libluajit-5.1.so.2
 libm.so.6
 libncurses.so.6
-libprotobuf.so.17
+libprotobuf.so.22
 libpthread.so.0
 librt.so.1
 libssl.so.1.1

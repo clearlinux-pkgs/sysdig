@@ -4,7 +4,7 @@
 #
 Name     : sysdig
 Version  : 0.26.4
-Release  : 24
+Release  : 25
 URL      : https://github.com/draios/sysdig/archive/0.26.4.tar.gz
 Source0  : https://github.com/draios/sysdig/archive/0.26.4.tar.gz
 Summary  : No detailed summary available
@@ -22,7 +22,7 @@ BuildRequires : elfutils-dev
 BuildRequires : grpc-dev
 BuildRequires : jq-dev
 BuildRequires : jsoncpp-dev
-BuildRequires : libb64-dev
+BuildRequires : libb64-staticdev
 BuildRequires : lua-dev
 BuildRequires : ncurses-dev
 BuildRequires : openssl-dev
@@ -74,6 +74,7 @@ man components for the sysdig package.
 
 %prep
 %setup -q -n sysdig-0.26.4
+cd %{_builddir}/sysdig-0.26.4
 %patch1 -p1
 %patch2 -p1
 
@@ -82,7 +83,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571623817
+export SOURCE_DATE_EPOCH=1579723906
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -95,7 +96,7 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1571623817
+export SOURCE_DATE_EPOCH=1579723906
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sysdig
 cp %{_builddir}/sysdig-0.26.4/COPYING %{buildroot}/usr/share/package-licenses/sysdig/783f98f43ccc3ce8a369b86bcf5f769c9c83d678

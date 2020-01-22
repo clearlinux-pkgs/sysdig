@@ -6,7 +6,7 @@ LuaJIT-dev
 jsoncpp-dev
 jq-dev
 openssl-dev
-libb64-dev
+libb64-staticdev
 curl-dev
 elfutils-dev
 tbb-dev
