@@ -13,6 +13,6 @@ libncurses.so.6
 libprotobuf.so.29
 libssl.so.1.1
 libstdc++.so.6
-libtbb.so.2
+libtbb.so.12
 libtinfo.so.6
 libz.so.1
